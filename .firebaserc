@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ng10-where-to-eat": {
+      "hosting": {
+        "ng10-where-to-eat": [
+          "ng10-where-to-eat"
+        ]
+      }
+    }
+  }
+}

@@ -2,7 +2,6 @@
 
 <ng-template #restauList>
   <div *ngFor="let restau of restaurants$ | async">
-    {{ restau | json }}
     <div>Nom : {{ restau.name }}</div>
     <div>Ajouté le : {{ restau.createdAt | date: "dd/MM/yyyy à HH:mm" }}</div>
     <div>

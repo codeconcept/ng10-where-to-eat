@@ -1,20 +1,22 @@
-<div>
-  <form [formGroup]="suggestionForm" (ngSubmit)="addRestaurant()">
-    <mat-form-field appearance="fill">
-      <mat-label>Restaurant</mat-label>
-      <input matInput formControlName="name" type="text" />
-    </mat-form-field>
-    <button
-      mat-button
-      color="primary"
-      type="submit"
-      [disabled]="!suggestionForm.valid"
-    >
-      ajouter
-    </button>
-  </form>
-</div>
+<div class="main">
+  <div>
+    <form [formGroup]="suggestionForm" (ngSubmit)="addRestaurant()">
+      <mat-form-field appearance="fill">
+        <mat-label>Restaurant</mat-label>
+        <input matInput formControlName="name" type="text" />
+      </mat-form-field>
+      <button
+        mat-button
+        color="primary"
+        type="submit"
+        [disabled]="!suggestionForm.valid"
+      >
+        ajouter
+      </button>
+    </form>
+  </div>
 
-<div>
-  <app-suggestion-list></app-suggestion-list>
+  <div>
+    <app-suggestion-list></app-suggestion-list>
+  </div>
 </div>

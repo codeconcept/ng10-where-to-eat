@@ -17,7 +17,9 @@ export class RestaurantService {
   }
 
   readRestaurants() {
-    return this.afs.collection<Restaurant>(this.collectionName);
+    return this.afs.collection<Restaurant>(this.collectionName, (ref) =>
+      ref.orderBy('votes', 'desc')
+    );
   }
 
   voteForRestaurant(restaurant) {

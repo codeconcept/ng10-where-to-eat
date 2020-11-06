@@ -19,4 +19,11 @@ export class RestaurantService {
   readRestaurants() {
     return this.afs.collection<Restaurant>(this.collectionName);
   }
+
+  voteForRestaurant(restaurant) {
+    return this.afs.doc(`${this.collectionName}/${restaurant.id}`).update({
+      ...restaurant,
+      votes: restaurant.votes + 1,
+    });
+  }
 }

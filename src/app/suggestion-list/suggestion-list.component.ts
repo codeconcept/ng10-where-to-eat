@@ -23,7 +23,7 @@ export class SuggestionListComponent implements OnInit {
     });
   }
 
-  vote(id) {
-    console.log(id);
+  vote(restaurant) {
+    this.rs.voteForRestaurant(restaurant);
   }
 }

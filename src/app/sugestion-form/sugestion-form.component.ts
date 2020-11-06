@@ -26,9 +26,6 @@ export class SugestionFormComponent implements OnInit {
       this.suggestionForm.value.name
     );
     console.log(result);
-    if (result.id) {
-      this.message = `Restaurant ${result.id} créé`;
-    }
     this.suggestionForm.reset();
   }
 }

@@ -4,7 +4,14 @@
       <mat-label>Restaurant</mat-label>
       <input matInput formControlName="name" type="text" />
     </mat-form-field>
-    <button mat-button color="primary" type="submit">ajouter</button>
+    <button
+      mat-button
+      color="primary"
+      type="submit"
+      [disabled]="!suggestionForm.valid"
+    >
+      ajouter
+    </button>
   </form>
 </div>
 

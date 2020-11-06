@@ -26,4 +26,13 @@ export class SuggestionListComponent implements OnInit {
   vote(restaurant) {
     this.rs.voteForRestaurant(restaurant);
   }
+
+  setRankLabel(restaurant: Restaurant) {
+    const label =
+      restaurant.votes <= 1
+        ? `${restaurant.votes} vote pour ${restaurant.name}`
+        : `${restaurant.votes} votes pour ${restaurant.name}`;
+
+    return label;
+  }
 }

@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SugestionFormComponent } from './sugestion-form/sugestion-form.component';
+import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
+import { RestaurantRankingComponent } from './restaurant-ranking/restaurant-ranking.component';
 
 // Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,10 +19,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
 
 @NgModule({
-  declarations: [AppComponent, SugestionFormComponent, SuggestionListComponent],
+  declarations: [AppComponent, SugestionFormComponent, SuggestionListComponent, RestaurantRankingComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

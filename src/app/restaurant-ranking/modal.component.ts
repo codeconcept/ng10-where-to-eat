@@ -4,11 +4,16 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { RestaurantService } from '../services/restaurant.service';
 
 @Component({
   selector: 'app-modal-component',
   template: `
-    <h1 mat-dialog-title>Supprimer {{ data.name }}</h1>
+    <h3 mat-dialog-title>Supprimer {{ data.name }}</h3>
+    <div mat-dialog-content>
+      Etes-vous bien sûr de vouloir supprimer {{ data.name }} ?
+    </div>
+    <br />
     <div mat-dialog-actions>
       <button mat-button (click)="onNoClick()">Non merci</button>
       <button mat-button (click)="delete()">Oui, supprimer</button>
@@ -17,6 +22,7 @@ import {
 })
 export class ModalComponent {
   constructor(
+    private rs: RestaurantService,
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {}
@@ -25,7 +31,8 @@ export class ModalComponent {
     this.dialogRef.close('nope');
   }
 
-  delete() {
+  async delete() {
+    await this.rs.deleteRestaurant(this.data);
     this.dialogRef.close('delete soon');
     console.log('restau from dialog', this.data);
   }

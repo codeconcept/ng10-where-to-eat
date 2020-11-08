@@ -28,4 +28,8 @@ export class RestaurantService {
       votes: restaurant.votes + 1,
     });
   }
+
+  deleteRestaurant(restaurant: Restaurant) {
+    return this.afs.doc(`${this.collectionName}/${restaurant.id}`).delete();
+  }
 }

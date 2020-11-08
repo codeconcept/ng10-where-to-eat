@@ -1,7 +1,9 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { map } from 'rxjs/operators';
 
 import { Restaurant } from '../models/restaurant';
+import { ModalComponent } from './modal.component';
 
 @Component({
   selector: 'app-restaurant-ranking',
@@ -11,8 +13,21 @@ import { Restaurant } from '../models/restaurant';
 export class RestaurantRankingComponent implements OnChanges {
   @Input() restaurants$;
   sortedRestaurants: Restaurant[];
+  modalResult;
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
+
+  openDialog(restau) {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '350px',
+      data: { ...restau },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.modalResult = result;
+      console.log('this.modalResult', this.modalResult);
+    });
+  }
 
   ngOnChanges(changes): void {
     console.log('changes', changes);

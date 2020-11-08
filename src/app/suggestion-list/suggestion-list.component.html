@@ -1,4 +1,5 @@
 <app-restaurant-ranking [restaurants$]="restaurants$"></app-restaurant-ranking>
+<br />
 
 <div *ngIf="!(restaurants$ | async); else restauList">loading</div>
 

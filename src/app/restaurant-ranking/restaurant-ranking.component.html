@@ -1,9 +1,12 @@
 <h3>Résultats</h3>
 <div *ngIf="sortedRestaurants">
-  <mat-selection-list [multiple]="false">
+  <mat-selection-list
+    [multiple]="false"
+    (selectionChange)="onSelectionChange($event)"
+  >
     <mat-list-option
       *ngFor="let restau of sortedRestaurants"
-      [value]="restau.id"
+      [value]="restau"
     >
       {{ restau.votes }} vote{{ restau.votes > 1 ? "s" : "" }} pour
       {{ restau.name }}

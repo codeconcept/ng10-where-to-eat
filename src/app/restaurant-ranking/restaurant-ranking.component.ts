@@ -19,15 +19,17 @@ export class RestaurantRankingComponent implements OnChanges {
     if (!changes.restaurants$.currentValue) {
       return;
     }
-    changes.restaurants$.currentValue.pipe(
-      map((restaurants: Restaurant[]) => {
-        // the 'restaurants' argument is a JavaScript Array
-        const sortResult = restaurants.sort(this.sortByScore);
-        this.sortedRestaurants = sortResult;
-        console.log('this.sortedRestaurants', this.sortedRestaurants);
-        return this.sortedRestaurants;
-      })
-    ).subscribe();
+    changes.restaurants$.currentValue
+      .pipe(
+        map((restaurants: Restaurant[]) => {
+          // the 'restaurants' argument is a JavaScript Array
+          const sortResult = restaurants.sort(this.sortByScore);
+          this.sortedRestaurants = sortResult;
+          console.log('this.sortedRestaurants', this.sortedRestaurants);
+          return this.sortedRestaurants;
+        })
+      )
+      .subscribe();
   }
 
   sortByScore(a, b) {
@@ -38,5 +40,9 @@ export class RestaurantRankingComponent implements OnChanges {
     } else {
       return 0;
     }
+  }
+
+  onSelectionChange(event) {
+    console.log(event.option.value);
   }
 }

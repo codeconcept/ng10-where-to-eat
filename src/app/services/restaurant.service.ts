@@ -23,10 +23,9 @@ export class RestaurantService {
   }
 
   voteForRestaurant(restaurant) {
-    return this.afs.doc(`${this.collectionName}/${restaurant.id}`).update({
-      ...restaurant,
-      votes: restaurant.votes + 1,
-    });
+    return this.afs
+      .doc(`${this.collectionName}/${restaurant.id}`)
+      .update({ votes: restaurant.votes + 1 });
   }
 
   deleteRestaurant(restaurant: Restaurant) {
